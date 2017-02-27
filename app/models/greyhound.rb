@@ -1,0 +1,2 @@
+class Greyhound < ApplicationRecord
+end

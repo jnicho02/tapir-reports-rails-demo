@@ -1,0 +1,8 @@
+<h1>Greyhounds</h1>
+<ul>
+<% @greyhounds.each do |greyhound| %>
+  <li><%= link_to greyhound.name, greyhound %></li>
+<% end %>
+</ul>
+
+<p><%#= link_to 'profile Word doc', polymorphic_path(:greyhounds, format: :docx) %></p>
