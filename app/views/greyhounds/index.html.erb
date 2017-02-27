@@ -5,4 +5,6 @@
 <% end %>
 </ul>
 
-<p><%#= link_to 'profile Word doc', polymorphic_path(:greyhounds, format: :docx) %></p>
+<h2>The Kennel Times</h2>
+<p>Generate a Word document of <%= link_to 'The Kennel Times', polymorphic_path(:greyhounds, format: :docx) %> from the template in assets/images</p>
+<%= image_tag("kennel_times.png") %>

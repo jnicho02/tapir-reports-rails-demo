@@ -5,8 +5,10 @@ class GreyhoundsController < ApplicationController
     respond_to do |format|
       format.html
       format.docx do
+        @volume = "1"
+        @issue = "1"
         template = Tapir::Reports::Template.new('app/assets/images/kennel_times.docx')
-        s = template.output(@greyhounds, [])
+        s = template.output(binding, [])
         send_data s, filename: "kennel_times.docx", type: :docx, disposition: :inline
       end
     end
@@ -22,7 +24,7 @@ class GreyhoundsController < ApplicationController
           [
             ['photo_uri', @greyhound.photo_uri]
           ]
-        s = template.output(@greyhound, replacements)
+        s = template.output(binding, replacements)
         send_data s, filename: "#{@greyhound.name}_profile.docx", type: :docx, disposition: :inline
       end
     end
