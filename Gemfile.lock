@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/jnicho02/tapir-reports.git
-  revision: c5f35de21b9b3001b6334349de6df2c55083ac8a
+  revision: 741c136382301d066c6851fa10877abaa6d846b3
   specs:
     tapir-reports (0.2.0pre)
       nokogiri
@@ -149,7 +149,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.0)
+    uglifier (3.1.1)
       execjs (>= 0.3.0, < 3)
     web-console (3.4.0)
       actionview (>= 5.0)
