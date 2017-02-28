@@ -2,13 +2,15 @@
 
 This is a demo Rails app for the [TapirReports](https://github.com/jnicho02/tapir-reports) gem
 
+The [live demo](https://tapir-reports-demo.herokuapp.com) is on Heroku
+
 Ruby version
 ============
-2.3.0
+2.3.0+
 
 Configuration
 =============
-this demo uses sqlite, so they _should_ be no need for a database server
+this demo uses sqlite, so there _should_ be no need for a database server
 
 Database creation and initialization
 ====================================
