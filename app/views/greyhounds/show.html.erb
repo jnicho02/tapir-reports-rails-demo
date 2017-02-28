@@ -1,14 +1,20 @@
-<div class="card">
-    <div class="card-img"><%= image_tag @greyhound.photo_uri %></div>
-    <h2 class="card-header"><%= @greyhound.name %></h2>
+<div class="card text-center">
+  <h2 class="card-header"><%= @greyhound.name %></h2>
+    <div class="card-img-top"><%= image_tag @greyhound.photo_uri %></div>
     <div class=card-block">
         <p class="card-text"><%= @greyhound.description %></p>
-        <p><%= link_to 'profile Word doc', polymorphic_path(@greyhound, format: :docx) %></p>
+        <p><%= link_to 'profile Word doc', polymorphic_path(@greyhound, format: :docx), {class: "btn btn-primary"} %></p>
     </div>
 </div>
 
 <h2>Template</h2>
-<p>The template in Word looks just like a bit of erb.html from Rails. All variables in the current binding are available within the document.</p>
-<h3>Objects, not strings</h3>
-<p>In templating systems, the fields are normally string values. In TapirReports, same as in erb, they are objects so you can call methods on them. You could even call some core ruby classes like &lt;%= Date.today %&gt;</p>
-<%= image_tag("profile.png") %>
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+<%= image_tag("profile.png", {class: "w-100"}) %>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    <p>The template in Word looks just like a bit of erb.html from Rails. All variables in the current binding are available within the document.</p>
+    <h3>Objects, not strings</h3>
+    <p>In templating systems, the fields are normally string values. In TapirReports, same as in erb, they are objects so you can call methods on them. You could even call some core ruby classes like &lt;%= Date.today %&gt;</p>
+</div>
+</div>
