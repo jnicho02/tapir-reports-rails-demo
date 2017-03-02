@@ -1,5 +1,5 @@
 <div class="card text-center">
-  <h2 class="card-header"><%= @greyhound.name %></h2>
+    <h2 class="card-header"><%= @greyhound.name %></h2>
     <div class="card-img-top"><%= image_tag @greyhound.photo_uri %></div>
     <div class=card-block">
         <p class="card-text"><%= @greyhound.description %></p>
@@ -9,12 +9,160 @@
 
 <h2>Template</h2>
 <div class="row">
-  <div class="col-xs-12 col-sm-4">
-<%= image_tag("profile.png", {class: "w-100"}) %>
-  </div>
-  <div class="col-xs-12 col-sm-8">
-    <p>The template in Word looks just like a bit of erb.html from Rails. All variables in the current binding are available within the document.</p>
-    <h3>Objects, not strings</h3>
-    <p>In templating systems, the fields are normally string values. In TapirReports, same as in erb, they are objects so you can call methods on them. You could even call some core ruby classes like &lt;%= Date.today %&gt;</p>
-</div>
+    <div class="col-xs-12 col-sm-4">
+        <%= image_tag("profile.png", {class: "w-100"}) %>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+        <h3>Same erb as you'd use in Rails</h3>
+        <p>The template in Word looks just like a bit of erb.html from Rails. All variables in the current binding are available within the document.</p>
+        <h3>Objects, not strings</h3>
+        <p>In templating systems, the fields are normally string values. In TapirReports, same as in erb, they are objects so you can call methods on them. You could even call some core ruby classes like &lt;%= Date.today %&gt;</p>
+        <h3>From a Rails Controller</h3>
+        <div class="line" data-screen-row="16">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace"></span>
+                <span class="syntax--meta syntax--function syntax--method syntax--without-arguments syntax--ruby">
+                    <span class="syntax--keyword syntax--control syntax--def syntax--ruby">def</span>
+                    <span class="syntax--entity syntax--name syntax--function syntax--ruby">show</span>
+                </span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="17">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">  </span>
+                <span class="syntax--variable syntax--other syntax--readwrite syntax--instance syntax--ruby">
+                    <span class="syntax--punctuation syntax--definition syntax--variable syntax--ruby">@</span>greyhound</span>
+                <span class="syntax--keyword syntax--operator syntax--assignment syntax--ruby">=</span>
+                <span class="syntax--support syntax--class syntax--ruby">Greyhound</span><span class="syntax--punctuation syntax--separator syntax--method syntax--ruby">.</span>find<span class="syntax--punctuation syntax--section syntax--function syntax--ruby">(</span>params<span class="syntax--punctuation syntax--section syntax--array syntax--begin syntax--ruby">[</span>
+                <span class="syntax--constant syntax--other syntax--symbol syntax--ruby">
+                    <span class="syntax--punctuation syntax--definition syntax--constant syntax--ruby">:</span>id</span>
+                <span class="syntax--punctuation syntax--section syntax--array syntax--end syntax--ruby">]</span>
+                <span class="syntax--punctuation syntax--section syntax--function syntax--ruby">)</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="18">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">    </span>respond_to
+                <span class="syntax--keyword syntax--control syntax--start-block syntax--ruby">do</span>
+                <span class="syntax--punctuation syntax--separator syntax--variable syntax--ruby">|</span>
+                <span class="syntax--support syntax--function syntax--kernel syntax--ruby">format</span>
+                <span class="syntax--punctuation syntax--separator syntax--variable syntax--ruby">|</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="19">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">      </span>
+                <span class="syntax--support syntax--function syntax--kernel syntax--ruby">format</span><span class="syntax--punctuation syntax--separator syntax--method syntax--ruby">.</span>html
+            </span>
+        </div>
+        <div class="line" data-screen-row="20">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">      </span>
+                <span class="syntax--support syntax--function syntax--kernel syntax--ruby">format</span><span class="syntax--punctuation syntax--separator syntax--method syntax--ruby">.</span>docx
+                <span class="syntax--keyword syntax--control syntax--start-block syntax--ruby">do</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="21">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">         </span>template
+                <span class="syntax--keyword syntax--operator syntax--assignment syntax--ruby">=</span>
+                <span class="syntax--support syntax--class syntax--ruby">Tapir</span>
+                <span class="syntax--punctuation syntax--separator syntax--namespace syntax--ruby">::</span>
+                <span class="syntax--support syntax--class syntax--ruby">Reports</span>
+                <span class="syntax--punctuation syntax--separator syntax--namespace syntax--ruby">::</span>
+                <span class="syntax--support syntax--class syntax--ruby">Template</span><span class="syntax--punctuation syntax--separator syntax--method syntax--ruby">.</span><span class="syntax--keyword syntax--other syntax--special-method syntax--ruby">new</span><span class="syntax--punctuation syntax--section syntax--function syntax--ruby">(</span>
+                <span class="syntax--string syntax--quoted syntax--single syntax--ruby">
+                    <span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--ruby">'</span>app/assets/images/profile.docx<span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--ruby">'</span>
+                </span>
+                <span class="syntax--punctuation syntax--section syntax--function syntax--ruby">)</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="22">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">         </span>replacements
+                <span class="syntax--keyword syntax--operator syntax--assignment syntax--ruby">=</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="23">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">          </span>
+                <span class="syntax--punctuation syntax--section syntax--array syntax--begin syntax--ruby">[</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="24">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">            </span>
+                <span class="syntax--punctuation syntax--section syntax--array syntax--begin syntax--ruby">[</span>
+                <span class="syntax--string syntax--quoted syntax--single syntax--ruby">
+                    <span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--ruby">'</span>photo_uri<span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--ruby">'</span>
+                </span>
+                <span class="syntax--punctuation syntax--separator syntax--object syntax--ruby">,</span>
+                <span class="syntax--variable syntax--other syntax--readwrite syntax--instance syntax--ruby">
+                    <span class="syntax--punctuation syntax--definition syntax--variable syntax--ruby">@</span>greyhound</span>
+                <span class="syntax--punctuation syntax--separator syntax--method syntax--ruby">.</span>photo_uri<span class="syntax--punctuation syntax--section syntax--array syntax--end syntax--ruby">]</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="25">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">          </span>
+                <span class="syntax--punctuation syntax--section syntax--array syntax--end syntax--ruby">]</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="26">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">           </span>s
+                <span class="syntax--keyword syntax--operator syntax--assignment syntax--ruby">=</span>
+                template<span class="syntax--punctuation syntax--separator syntax--method syntax--ruby">.</span>output<span class="syntax--punctuation syntax--section syntax--function syntax--ruby">(</span>
+                <span class="syntax--support syntax--function syntax--kernel syntax--ruby">binding</span>
+                <span class="syntax--punctuation syntax--separator syntax--object syntax--ruby">,</span>
+                replacements<span class="syntax--punctuation syntax--section syntax--function syntax--ruby">)</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="27">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">           </span>send_data s<span class="syntax--punctuation syntax--separator syntax--object syntax--ruby">,</span>
+                <span class="syntax--constant syntax--other syntax--symbol syntax--hashkey syntax--ruby">filename<span class="syntax--punctuation syntax--definition syntax--constant syntax--hashkey syntax--ruby">:</span>
+                </span>
+                <span class="syntax--string syntax--quoted syntax--double syntax--interpolated syntax--ruby">
+                    <span class="syntax--punctuation syntax--definition syntax--string syntax--begin syntax--ruby">"</span>
+                    <span class="syntax--meta syntax--embedded syntax--line syntax--ruby">
+                        <span class="syntax--punctuation syntax--section syntax--embedded syntax--begin syntax--ruby">#{</span>
+                        <span class="syntax--source syntax--ruby">
+                            <span class="syntax--variable syntax--other syntax--readwrite syntax--instance syntax--ruby">
+                                <span class="syntax--punctuation syntax--definition syntax--variable syntax--ruby">@</span>greyhound</span>
+                            <span class="syntax--punctuation syntax--separator syntax--method syntax--ruby">.</span>name</span>
+                        <span class="syntax--punctuation syntax--section syntax--embedded syntax--end syntax--ruby">}</span>
+                    </span>_profile.docx<span class="syntax--punctuation syntax--definition syntax--string syntax--end syntax--ruby">"</span>
+                </span>
+                <span class="syntax--punctuation syntax--separator syntax--object syntax--ruby">,</span>
+                <span class="syntax--constant syntax--other syntax--symbol syntax--hashkey syntax--ruby">type<span class="syntax--punctuation syntax--definition syntax--constant syntax--hashkey syntax--ruby">:</span>
+                </span>
+                <span class="syntax--constant syntax--other syntax--symbol syntax--ruby">
+                    <span class="syntax--punctuation syntax--definition syntax--constant syntax--ruby">:</span>docx</span>
+                <span class="syntax--punctuation syntax--separator syntax--object syntax--ruby">,</span>
+                <span class="syntax--constant syntax--other syntax--symbol syntax--hashkey syntax--ruby">disposition<span class="syntax--punctuation syntax--definition syntax--constant syntax--hashkey syntax--ruby">:</span>
+                </span>
+                <span class="syntax--constant syntax--other syntax--symbol syntax--ruby">
+                    <span class="syntax--punctuation syntax--definition syntax--constant syntax--ruby">:</span>inline</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="28">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">     </span>
+                <span class="syntax--keyword syntax--control syntax--ruby">end</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="29">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace">  </span>
+                <span class="syntax--keyword syntax--control syntax--ruby">end</span>
+            </span>
+        </div>
+        <div class="line" data-screen-row="30">
+            <span class="syntax--source syntax--ruby">
+                <span class="leading-whitespace"></span>
+                <span class="syntax--keyword syntax--control syntax--ruby">end</span>
+            </span>
+        </div>
+    </div>
 </div>
