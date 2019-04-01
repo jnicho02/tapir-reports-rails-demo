@@ -34,7 +34,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'tapir-reports', github: 'jnicho02/tapir-reports'
 
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '>= 4.3.1'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
