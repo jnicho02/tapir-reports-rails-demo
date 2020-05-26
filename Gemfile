@@ -13,7 +13,7 @@ group :development do
   gem 'listen'
 end
 gem 'pg', group: :production
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'rails', '~> 5.2.3'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
