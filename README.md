@@ -12,6 +12,14 @@ Configuration
 =============
 this demo uses sqlite, so there _should_ be no need for a database server
 
+Docker
+======
+```
+docker-compose build
+dip provision
+dip rails s
+```
+
 Database creation and initialization
 ====================================
 rake db:create db:migrate db:seed
