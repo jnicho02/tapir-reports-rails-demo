@@ -6,11 +6,6 @@ environment:
 compose:
   files:
     - docker-compose.yml
-  # specify project name explicitly to avoid name collisions:
-  # docker-compose use the compose file's folder name as the project name by default,
-  # which could be the same for different projects (e.g., if you store docker-compose.yml
-  # in the .dockerdev/ folder)
-  # project_name: my_project_dev
 
 interaction:
   sh:
@@ -46,12 +41,6 @@ interaction:
         compose:
           run_options: [service-ports, use-aliases]
 
-#  yarn:
-#    description: Run Yarn commands
-#    service: runner
-#    command: yarn
-#    compose_run_options: [no-deps]
-
   rspec:
     description: Run Rails tests
     service: runner
@@ -72,19 +61,9 @@ interaction:
     command: bundle exec rubocop
     compose_run_options: [no-deps]
 
-#  psql:
-#    description: Run psql console
-#    service: postgres
-#    command: psql -h postgres -U postgres -d st_john_development
-
-#  'redis-cli':
-#    description: Run Redis console
-#    service: redis
-#    command: redis-cli -h redis
-
 provision:
   - dip compose down --volumes
-  - dip compose up -d postgres # redis
+  - dip compose up # -d postgres
+  - dip bundle config --local build.pg --with-opt-dir="/usr/local/opt/libpq" # see https://michaelrigart.be/install-pg-ruby-gem-without-postgresql/
   - dip bundle install
-#  - dip yarn install
   - dip rails db:setup
