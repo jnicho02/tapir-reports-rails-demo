@@ -13,11 +13,12 @@ group :development do
   gem 'listen'
 end
 gem 'pg', group: :production
-gem 'puma', '~> 3.0'
+gem 'puma'
 gem 'rails', '~> 5.2.3'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 gem 'sass-rails', '~> 5.0'
 gem 'tapir-reports', github: 'jnicho02/tapir-reports'
+gem 'uglifier'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
