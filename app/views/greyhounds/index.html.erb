@@ -1,14 +1,16 @@
 <h1>Greyhounds</h1>
 <div class="row">
-    <% @greyhounds.each do |greyhound| %>
+  <% @greyhounds.each do |greyhound| %>
     <div class="col-xs-12 col-sm-4 col-md-3">
-        <%= render greyhound %>
+      <%= render greyhound %>
     </div>
-    <% end %>
+  <% end %>
 </div>
 
 <h2>The Kennel Times</h2>
-<p>Generate a Word document of
-    <%= link_to 'The Kennel Times', polymorphic_path(:greyhounds, format: :docx) %>
-    from the template in assets/images</p>
+<p>
+  Generate a Word document of
+  <%= link_to 'The Kennel Times', polymorphic_path(:greyhounds, format: :docx) %>
+  from the template in assets/images
+</p>
 <%= image_tag("kennel_times.png") %>
