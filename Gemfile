@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-ruby '2.6.5'
+ruby '2.6.6'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bootstrap', '>= 4.3.1'
+gem 'bootstrap'
 gem 'jquery-rails'
 group :development do
   gem 'sqlite3'
@@ -14,11 +14,11 @@ group :development do
 end
 gem 'pg', group: :production
 gem 'puma'
-gem 'rails', '~> 5.2.3'
+gem 'rails'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'tapir-reports', github: 'jnicho02/tapir-reports'
 gem 'uglifier'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+#gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

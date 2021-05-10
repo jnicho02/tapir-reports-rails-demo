@@ -1,16 +1,16 @@
-version: '2.4'
+version: '3.8'
 
 x-app: &app
   build:
     context: .
     dockerfile: ./.dockerdev/Dockerfile
     args:
-      RUBY_VERSION: '2.6'
-      NODE_MAJOR: '11'
+      RUBY_VERSION: '2.6.6'
+      NODE_MAJOR: '12'
   environment: &env
     NODE_ENV: development
     RAILS_ENV: development # ${RAILS_ENV:-development}
-  image: tapir-reports-rails-demo:1.0.6
+  image: tapir-reports-rails-demo:1.0.11
   tmpfs:
     - /tmp
 
@@ -19,6 +19,7 @@ x-backend: &backend
   stdin_open: true
   tty: true
   volumes:
+    - ./webapp:/opt/webapp
     - .:/app:cached
     - rails_cache:/app/tmp/cache
     - bundle:/usr/local/bundle
@@ -26,7 +27,6 @@ x-backend: &backend
     - .dockerdev/.bashrc:/root/.bashrc:ro
   environment:
     <<: *env
-#    DATABASE_URL: postgres://postgres:postgres@postgres:5432
     BOOTSNAP_CACHE_DIR: /usr/local/bundle/_bootsnap
     WEB_CONCURRENCY: 1
     HISTFILE: /app/log/.bash_history
@@ -48,5 +48,5 @@ services:
 
 volumes:
   bundle:
-  rails_cache:
   node_modules:
+  rails_cache:

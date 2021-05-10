@@ -1,4 +1,4 @@
-version: '4.1'
+version: '7.1'
 
 environment:
   RAILS_ENV: development
@@ -8,11 +8,6 @@ compose:
     - docker-compose.yml
 
 interaction:
-  sh:
-    description: Open a Bash shell within a Rails container (with dependencies up)
-    service: runner
-    command: /bin/bash
-
   bash:
     description: Run an arbitrary script within a container (or open a shell without deps)
     service: runner
@@ -25,11 +20,6 @@ interaction:
     command: bundle
     compose_run_options: [no-deps]
 
-  rake:
-    description: Run Rake commands
-    service: runner
-    command: bundle exec rake
-
   rails:
     description: Run Rails commands
     service: runner
@@ -41,6 +31,11 @@ interaction:
         compose:
           run_options: [service-ports, use-aliases]
 
+  rake:
+    description: Run Rake commands
+    service: runner
+    command: bundle exec rake
+
   rspec:
     description: Run Rails tests
     service: runner
@@ -48,22 +43,14 @@ interaction:
       RAILS_ENV: test
     command: bundle exec rspec
 
-  test:
-    description: Run Rails tests
+  sh:
+    description: Open a Bash shell within a Rails container (with dependencies up)
     service: runner
-    environment:
-      RAILS_ENV: test
-    command: rake test
-
-  rubocop:
-    description: Run Rubocop
-    service: runner
-    command: bundle exec rubocop
-    compose_run_options: [no-deps]
+    command: /bin/bash
 
 provision:
   - dip compose down --volumes
-  - dip compose up # -d postgres
+  - dip compose up
   - dip bundle config --local build.pg --with-opt-dir="/usr/local/opt/libpq" # see https://michaelrigart.be/install-pg-ruby-gem-without-postgresql/
   - dip bundle install
   - dip rails db:setup

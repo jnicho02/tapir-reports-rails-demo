@@ -6,7 +6,7 @@ Greyhound.create(
 Greyhound.create(
   name: 'Kizi',
   description: 'Was bounced back from my homes three times. Bonds quickly and will make a very devoted hound.',
-  photo_uri: 'https://foreverhoundstrust.org/wp-content/uploads/2020/01/20200109-Baby-47.jpg'
+  photo_uri: 'https://www.macmillandictionaryblog.com/wp-content/uploads/2018/02/greyhound.jpg'
 )
 Greyhound.create(
   name: 'Katie',
